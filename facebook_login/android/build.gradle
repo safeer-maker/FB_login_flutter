@@ -2,6 +2,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -26,4 +27,32 @@ subprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+buildscript {
+
+    repositories {
+        // Check that you have the following line (if not, add it):
+        google()  // Google's Maven repository
+    }
+
+    // ...
+
+    dependencies {
+        // ...
+
+        // Add the following line:
+        classpath 'com.google.gms:google-services:4.3.3'  // Google Services plugin
+        //implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+    }
+}
+
+allprojects {
+    // ...
+
+    repositories {
+        // Check that you have following line (if not, add it):
+        google()  // Google's Maven repository
+        // ...
+    }
 }

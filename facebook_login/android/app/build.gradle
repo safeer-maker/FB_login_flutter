@@ -1,3 +1,4 @@
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -51,4 +52,32 @@ android {
 
 flutter {
     source '../..'
+}
+
+//apply plugin: 'com.google.gms.google-services'  // Google Services plugin
+
+apply plugin: 'com.android.application'
+// Add this line
+apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    // add the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    // add SDKs for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+}
+
+android {
+    // ...
+    defaultConfig {
+
+        // Enabling multidex support.
+        multiDexEnabled true
+    }
+
+    dependencies {
+        implementation 'com.android.support:multidex:1.0.3'  //with support libraries
+        //implementation 'androidx.multidex:multidex:2.0.1'  //with androidx libraries
+    }
+
 }
